@@ -19,6 +19,7 @@ export class HistoryService {
       FROM query_history 
       WHERE user_id = $1 
       ORDER BY created_at DESC
+      LIMIT 50
     `;
     
     const result = await mainPool.query<QueryHistoryItem>(query, [userId]);
